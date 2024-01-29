@@ -1,16 +1,28 @@
 
 import './App.css';
-import Button from './Components/Button/Button';
-import AgeInput from './Components/AgeInput/AgeInput';
+import About from './Pages/About/About';
+import Homepage from './Pages/HomePage/Homepage';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 
 const App=()=> {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-      <Button label="ammu" color="red"/>
-      <Button label="aju" color="yellow"/>
-      <AgeInput/>
-    </div> 
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/"> Home </Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+        <hr/>
+        <Routes>
+        <Route path="/" exact element={<Homepage/>}/>
+        <Route path="/about" element={<About/>}/>
+        </Routes>
+      </Router> 
   );
 }
 
