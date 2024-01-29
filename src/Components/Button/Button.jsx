@@ -6,7 +6,7 @@ const Button = ({label,color}) =>{
         <button className="button">{label}</button>
     )
 }
-//method2
+// method2
 // function Button(props){
 //     return(
 //         <button className="button">{props.label}</button>
