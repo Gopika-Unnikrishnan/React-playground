@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
 
 const AgeInput = () => {
     const [age, setAge] = useState(0);
@@ -27,6 +28,9 @@ const AgeInput = () => {
             />
             <p>{`Age: ${age}`}</p>
             {showWarning ? <p>you should be over 18</p> :<p>you are ok</p>}
+<Button variant='success'>
+    submit 
+</Button>
         </div>
     );
 };

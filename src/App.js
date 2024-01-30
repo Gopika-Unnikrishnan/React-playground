@@ -1,10 +1,11 @@
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import About from './Pages/About/About';
 import Homepage from './Pages/HomePage/Homepage';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import AgeInput from './Pages/Ages/Ages';
 import TaskTracker from './Pages/TaskTracker/Tasktracker';
+import Container from 'react-bootstrap/Container';
 
 const App=()=> {
   return (
@@ -20,12 +21,14 @@ const App=()=> {
           </ul>
         </nav>
         <hr/>
+        <Container>
         <Routes>
         <Route path="/" exact element={<Homepage/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/age" element={<AgeInput/>}/>
         <Route path="/task" element={<TaskTracker/>}/>
         </Routes>
+        </Container>
       </Router> 
   );
 }
