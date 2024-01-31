@@ -1,36 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
+import Alert from 'react-bootstrap/Alert';
 
 const AgeInput = () => {
+    const [name, setName] = useState("");
     const [age, setAge] = useState(0);
-    const [showWarning, setWarning]= useState(false)
+    const [sex, setSex] = useState("");
+    const [showWarning, setShowWarning] = useState(false)
 
-    const handleInputChange = (event) => {
-        setAge(event.target.value);
-    };
-    
+
+
     useEffect(() => {
-        if(age<18){
-            setWarning(true)
-        } else{
-            setWarning(false)
+        if (age == 0) {
+            setShowWarning(false) // this is wrong logic
+        } else if(age <=18){
+            setShowWarning(true)
+        } else {
+            setShowWarning(false)
         }
     }, [age])
 
+    const handleSubmitForms = (event) => {
+        event.preventDefault();
+       const data= {name, age, sex}
+       fetch("http://localhost:5000", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(data)
+       })
+    }
+
     return (
         <div>
-            <label htmlFor="ageInput">Enter Age: </label>
-            <input
-                type="text"
-                id="ageInput"
-                value={age}
-                onChange={handleInputChange}
-            />
-            <p>{`Age: ${age}`}</p>
-            {showWarning ? <p>you should be over 18</p> :<p>you are ok</p>}
-<Button variant='success'>
-    submit 
-</Button>
+            <Form onSubmit={handleSubmitForms}>
+                <Form.Group>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" placeholder="Enter your name" onChange={(e) => setName(e.target.value)} />
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label>Age</Form.Label>
+                    <Form.Control type="number" placeholder="Enter your age" onChange={(event) => setAge(event.target.value)} />
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label>Sex</Form.Label>
+                    <Form.Select onChange={(event) => setSex(event.target.value)}>
+                        <option disabled>Select</option>
+                        <option>male</option>
+                        <option>female</option>
+                        <option>transgender</option>
+                    </Form.Select>
+                </Form.Group>
+                {showWarning ? <Alert variant='danger'> you should be over 18</Alert> : ""}
+                <Button variant='success' type="submit" disabled={showWarning}>
+                    submit
+                </Button>
+            </Form>
+           
         </div>
     );
 };
