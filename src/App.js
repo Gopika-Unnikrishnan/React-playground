@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import AgeInput from './Pages/Ages/Ages';
 import TaskTracker from './Pages/TaskTracker/Tasktracker';
 import Container from 'react-bootstrap/Container';
+import FetchUserData from './Pages/FetchUserData/FetchUserData';
 
 const App=()=> {
   return (
@@ -27,6 +28,7 @@ const App=()=> {
         <Route path="/about" element={<About/>}/>
         <Route path="/age" element={<AgeInput/>}/>
         <Route path="/task" element={<TaskTracker/>}/>
+        <Route path="/fetch-userdata" element={<FetchUserData/>}/>
         </Routes>
         </Container>
       </Router> 

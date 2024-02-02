@@ -28,6 +28,15 @@ const Homepage = () =>{
                 <Button variant='primary' onClick={()=>navigate("/age")}>Go to Example</Button>
             </Card.Body>
             </Card>
+            <Card>
+            <Card.Body>
+                <Card.Title>Fetch User Data</Card.Title>
+                <Card.Text>
+                    Here we are displaying userdata in table
+                </Card.Text>
+                <Button variant='primary' onClick={()=>navigate("/fetch-userdata")}>Go to Example</Button>
+            </Card.Body>
+            </Card>
             </div>
         </div>
     )
