@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Tasks from '../../Components/Tasks/Tasks'
 
 const TaskTracker = () => {
     const [tasks,setTasks] = useState([])
@@ -7,6 +8,13 @@ const TaskTracker = () => {
         const data = res.json()
         return data
     }
+    const onDelete = async(id) => {
+        console.log("deleted",id)
+    }
+    const onToggle = async(id) => {
+        console.log("toggled",id)
+    }
+
     useEffect(() => {
         const getTask = async () => {
             const tasksFromServer = await fetchTask()
@@ -17,13 +25,7 @@ const TaskTracker = () => {
     return (
         <div>
             <h1>Task</h1>
-            <ol>
-                {tasks.map(task=>(
-                    <li>
-                        {task.text}
-                    </li>
-                ))}
-            </ol>
+            <Tasks tasks={tasks} onDelete={onDelete} onToggle={onToggle}/>
         </div>
     )
 }
