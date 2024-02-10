@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import Tasks from '../../Components/Tasks/Tasks'
+import AddTask from '../../Components/AddTask/AddTask'
+import "./style.css"
 
 const TaskTracker = () => {
     const [tasks,setTasks] = useState([])
@@ -7,6 +9,9 @@ const TaskTracker = () => {
         const res = await fetch("http://localhost:5000/tasks")
         const data = res.json()
         return data
+    }
+    const addTask = async(e) => {
+        console.log(e)
     }
     const onDelete = async(id) => {
         console.log("deleted",id)
@@ -23,8 +28,9 @@ const TaskTracker = () => {
         getTask()
     }, [])
     return (
-        <div>
+        <div className='task-container'>
             <h1>Task</h1>
+            <AddTask addTask={addTask}/>
             <Tasks tasks={tasks} onDelete={onDelete} onToggle={onToggle}/>
         </div>
     )
