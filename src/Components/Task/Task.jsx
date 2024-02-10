@@ -8,7 +8,7 @@ const Task = ({task, onDelete, onToggle}) => {
         className={`task ${task.reminder && 'reminder'}`}
         onDoubleClick={()=> onToggle(task.id)}
         >
-            <h3>{task.text}
+            <h3>{task.task}
             <FaTimes
             style={{color:"red",cursor:'pointer'}}
             onClick={() => onDelete(task.id)}

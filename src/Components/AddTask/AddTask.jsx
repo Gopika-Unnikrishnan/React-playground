@@ -5,7 +5,7 @@ import { useState } from "react"
 const AddTask = ({addTask}) => {
     const [task, setTask] = useState("")
     const [day, setDay] = useState("")
-    const [remainder, setRemainder] = useState(false)
+    const [reminder, setRemainder] = useState(false)
 
 const onSubmit = (e) =>{
     e.preventDefault()
@@ -13,7 +13,11 @@ const onSubmit = (e) =>{
         alert("please enter task!!")
         return
     }
-    addTask({task , day , remainder})
+    addTask({task , day , reminder})
+    setTask("")
+    setDay("")
+    setRemainder(false)
+
 }
 
     return(
@@ -28,7 +32,7 @@ const onSubmit = (e) =>{
             </div>
             <div className="form-control form-control-check">
                 <label>Set Remainder</label>
-                <input type="checkbox" onChange={(e)=>setRemainder(e.currentTarget.checked)} value={remainder}/>
+                <input type="checkbox" onChange={(e)=>setRemainder(e.currentTarget.checked)} value={reminder} checked={reminder}/>
             </div>
             <input type="submit" value="save task" className="btn btn-success btn-block"/>
         </form>
