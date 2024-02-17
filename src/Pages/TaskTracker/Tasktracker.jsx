@@ -5,11 +5,18 @@ import "./style.css"
 
 const TaskTracker = () => {
     const [tasks,setTasks] = useState([])
-    const fetchTask = async () => {
+    const fetchTasks = async () => {
         const res = await fetch("http://localhost:5000/tasks")
         const data = await res.json()
         return data
     }
+
+    const fetchTask = async (id) => {
+        const res = await fetch(`http://localhost:5000/tasks/${id}`)
+        const data = await res.json()
+        return data
+    }
+
 
     const addTask = async(task) => {
         const res = await fetch("http://localhost:5000/tasks",
@@ -34,12 +41,30 @@ const TaskTracker = () => {
         : alert("an issue occured during delete!!!!!")
     }
     const onToggle = async(id) => {
-        console.log("toggled",id)
+        const taskToToggle = await fetchTask(id)
+        const updateTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+        const res = await fetch(`http://localhost:5000/tasks/${id}`,
+        {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateTask)
+        }
+        )
+        const data = await res.json()
+        console.log(data)
+
+        setTasks(
+            tasks.map((task)=>
+            task.id === id ? {...task, reminder: data.reminder} : task
+            )
+        )
     }
 
     useEffect(() => {
         const getTask = async () => {
-            const tasksFromServer = await fetchTask()
+            const tasksFromServer = await fetchTasks()
             setTasks(tasksFromServer)
         }
         getTask()
