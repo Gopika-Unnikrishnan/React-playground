@@ -22,7 +22,7 @@ const FetchUserData = () =>{
                 <th>username</th>
                 <th>email</th>
             </tr>
-            {userData.map((user)=>(
+            {userData?.map((user)=>(
                 <tr>
                     <td>{user.name}</td>
                     <td>{user.username}</td>

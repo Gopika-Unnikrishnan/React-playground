@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert';
 
-const AgeInput = () => {
+const FormInput = () => {
     const [name, setName] = useState("");
     const [age, setAge] = useState(0);
     const [sex, setSex] = useState("");
@@ -24,7 +24,7 @@ const AgeInput = () => {
     const handleSubmitForms = (event) => {
         event.preventDefault();
        const data= {name, age, sex}
-       fetch("http://localhost:5000", {
+       fetch("http://localhost:5000", { 
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)
@@ -33,6 +33,8 @@ const AgeInput = () => {
 
     return (
         <div>
+            <h3> plese fill this form</h3>
+            <h6> this form isonly for people above 18</h6>
             <Form onSubmit={handleSubmitForms}>
                 <Form.Group>
                     <Form.Label>Name</Form.Label>
@@ -63,6 +65,6 @@ const AgeInput = () => {
     );
 };
 
-export default AgeInput;
+export default FormInput;
 
 

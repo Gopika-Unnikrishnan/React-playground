@@ -1,43 +1,41 @@
-import { Button } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-import { Link, useNavigate } from "react-router-dom"
+import "./style.css"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Itemcard from '../../Components/Itemcard';
 
-const Homepage = () =>{
-    const navigate = useNavigate()
-    return(
+
+const Homepage = () => {
+    return (
         <div>
-            <h1>Home Page</h1>
-            <Link to="/age">useState, useEffect example</Link>
-            <div>
-            <Link to="/task">Task Tracker</Link>
-            <Card>
-            <Card.Body>
-                <Card.Title>Task Tracker</Card.Title>
-                <Card.Text>
-                    This example covers Create Read Update Delete operation
-                </Card.Text>
-                <Button variant='primary' onClick={()=>navigate("/task")}>Go to Example</Button>
-            </Card.Body>
-            </Card>
-            <Card>
-            <Card.Body>
-                <Card.Title>Age Tracker</Card.Title>
-                <Card.Text>
-                    This example covers Create Read Update Delete operation
-                </Card.Text>
-                <Button variant='primary' onClick={()=>navigate("/age")}>Go to Example</Button>
-            </Card.Body>
-            </Card>
-            <Card>
-            <Card.Body>
-                <Card.Title>Fetch User Data</Card.Title>
-                <Card.Text>
-                    Here we are displaying userdata in table
-                </Card.Text>
-                <Button variant='primary' onClick={()=>navigate("/fetch-userdata")}>Go to Example</Button>
-            </Card.Body>
-            </Card>
-            </div>
+            <Container className='card-container'>
+               
+                <Itemcard
+                    title="TaskTracker"
+                    text="This is an simple Task tracker application. Note: you need to run 'npm run server' to view this section "
+                    link="/task"
+                />
+              
+                <Itemcard
+                    title="Form submission"
+                    text="in this form example, we are learning use state and use effect"
+                    link="/forms"
+                />
+                  
+                <Itemcard
+                    title="Fetch User Data"
+                    text="Here we are displaying userdata in table"
+                    link="/fetch-userdata"
+                />
+
+                <Itemcard
+                    title="Grid"
+                    text="this example gives you idea on bootstrap grids and cards"
+                    link="/grid"
+                />
+               
+
+            </Container>
         </div>
     )
 }

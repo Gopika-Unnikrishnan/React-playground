@@ -14,9 +14,11 @@ const NavBar =() => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link onClick={()=>navigate("/about")}>About</Nav.Link>
+                <Nav.Link onClick={()=>navigate("/sign-up")}>Signup</Nav.Link>
+                <Nav.Link onClick={()=>navigate("/sign-in")}>Signin</Nav.Link>
                 <NavDropdown className="justify-content-end" title="Profile" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="dashboard/1.0">Dashboard</NavDropdown.Item>
-                  <NavDropdown.Item href="dasboard/2.0">
+                  <NavDropdown.Item href="/dashboard">Dashboard</NavDropdown.Item>
+                  <NavDropdown.Item href="/logout">
                     Log out
                   </NavDropdown.Item>
                 </NavDropdown>
