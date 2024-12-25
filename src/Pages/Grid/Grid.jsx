@@ -8,11 +8,11 @@ const Grid = () => {
         {/* First card */}
         <div className="col mb-4">
           <Card>
-            <Card.Img variant="top" src="your-image-url-1.jpg" />
+            <Card.Img variant="top" src="/images/card-1.jfif" />
             <Card.Body>
-              <Card.Title>Card Title 1</Card.Title>
-              <Card.Text>Some quick example text for Card 1.</Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Card.Title>TaskTracker</Card.Title>
+              <Card.Text>My professional and educational background is outlined below</Card.Text>
+              <Button variant="primary">Go to Example</Button>
             </Card.Body>
           </Card>
         </div>

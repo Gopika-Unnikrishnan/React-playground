@@ -1,41 +1,26 @@
 import "./style.css"
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Itemcard from '../../Components/Itemcard';
+import data from './data.json'
 
 
 const Homepage = () => {
+    const itemData = data.data
     return (
-        <div>
-            <Container className='card-container'>
-               
-                <Itemcard
-                    title="TaskTracker"
-                    text="This is an simple Task tracker application. Note: you need to run 'npm run server' to view this section "
-                    link="/task"
+        <div className="container">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+                {itemData.map((item,index)=>{
+                    return(
+                        <Itemcard
+                        key={index}
+                    title={item.title}
+                    text={item.text}
+                    link={item.link}
+                    buttonText={item.buttonText}
+                    imageSrc={item.imageSrc}
                 />
-              
-                <Itemcard
-                    title="Form submission"
-                    text="in this form example, we are learning use state and use effect"
-                    link="/forms"
-                />
-                  
-                <Itemcard
-                    title="Fetch User Data"
-                    text="Here we are displaying userdata in table"
-                    link="/fetch-userdata"
-                />
-
-                <Itemcard
-                    title="Grid"
-                    text="this example gives you idea on bootstrap grids and cards"
-                    link="/grid"
-                />
-               
-
-            </Container>
+                    )
+                })}
+            </div>
         </div>
     )
 }

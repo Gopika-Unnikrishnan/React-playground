@@ -2,18 +2,19 @@ import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
 
-const Itemcard = ({title,text,link})=>{
+const Itemcard = ({title,text,link,buttonText,imageSrc})=>{
     const navigate = useNavigate()
     return(
-        <Card className='card'>
+        <div className="col mb-4">
+          <Card>
+            <Card.Img variant="top" src={imageSrc} />
             <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>
-                    {text}
-                </Card.Text>
-                <Button variant='success' onClick={()=>navigate(link)}>Go to Example</Button>
+              <Card.Title>{title}</Card.Title>
+              <Card.Text>{text}</Card.Text>
+              <Button variant="success" onClick={()=>navigate(link)}>{buttonText}</Button>
             </Card.Body>
-        </Card>
+          </Card>
+        </div>
     )
 }
 export default Itemcard

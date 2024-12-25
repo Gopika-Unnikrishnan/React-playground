@@ -1,19 +1,32 @@
 {
    "data": [
         {
-            "title":"TaskTracker",
-            "text":"This is an example task using cred application",
-            "link":"/task"
+            "title":"Task Tracker",
+            "text":"This is an simple Task tracker application. Note: you need to run 'npm run server' to view this section",
+            "link":"/task",
+            "buttonText":"Go to Task",
+            "imageSrc":"/images/card-1.jfif"
         },
         {
-            "title":"Age Tracker",
-            "text":"This example covers Create Read Update Delete operation",
-            "link":"/age"
+            "title":"Form submission",
+            "text":"in this form example, we are learning use state and use effect",
+            "link":"/forms",
+            "buttonText":"Go to Forms",
+            "imageSrc":"/images/card-1.jfif"
         },
         {
             "title":"Fetch User Data",
             "text":"Here we are displaying userdata in table",
-            "link":"/fetch-userdata"
+            "link":"/fetch-userdata",
+            "buttonText":"Go to User Data",
+            "imageSrc":"/images/card-1.jfif"
+        },
+        {
+            "title":"Grid",
+            "text":"this example gives you idea on bootstrap grids and cards",
+            "link":"/grid",
+            "buttonText":"Go to Grid",
+            "imageSrc":"/images/card-1.jfif"
         }
     ]
 }
