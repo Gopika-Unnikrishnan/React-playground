@@ -12,14 +12,14 @@
             "text":"in this form example, we are learning use state and use effect",
             "link":"/forms",
             "buttonText":"Go to Forms",
-            "imageSrc":"/images/card-1.jfif"
+            "imageSrc":"/images/card-2.jfif"
         },
         {
             "title":"Fetch User Data",
-            "text":"Here we are displaying userdata in table",
+            "text":"Fetching user data from jsonplaceholder API and display in table",
             "link":"/fetch-userdata",
             "buttonText":"Go to User Data",
-            "imageSrc":"/images/card-1.jfif"
+            "imageSrc":"/images/card-3.jfif"
         },
         {
             "title":"Grid",

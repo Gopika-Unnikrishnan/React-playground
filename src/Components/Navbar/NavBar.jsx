@@ -12,7 +12,7 @@ const NavBar =() => {
             <Navbar.Brand className='ammu_super' onClick={()=>navigate("/")}>Ammu's Playground</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
+              <Nav className="ms-auto">
                 <Nav.Link onClick={()=>navigate("/about")}>About</Nav.Link>
                 <Nav.Link onClick={()=>navigate("/sign-up")}>Signup</Nav.Link>
                 <Nav.Link onClick={()=>navigate("/sign-in")}>Signin</Nav.Link>
