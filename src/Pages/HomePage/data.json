@@ -27,6 +27,13 @@
             "link":"/grid",
             "buttonText":"Go to Grid",
             "imageSrc":"/images/card-1.jfif"
+        },
+        {
+            "title":"Redux",
+            "text":"Demo of the redux",
+            "link":"/redux",
+            "buttonText":"Go to Redux",
+            "imageSrc":"/images/card-1.jfif"
         }
     ]
 }
