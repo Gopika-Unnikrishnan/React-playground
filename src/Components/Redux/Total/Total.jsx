@@ -1,7 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 function Total() {
-    const total = 0
+    const total = useSelector((state)=>state.total)
   return (
     <div className='customDiv'>
         <h3>Total</h3>
