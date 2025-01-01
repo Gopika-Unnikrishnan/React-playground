@@ -20,8 +20,13 @@ const initialData = {
         }
     ],
     cart : [],
-    total : 0
+    total : 0,
+    users : [
+        "Admin","Manager","End-user"
+    ],
+    LoginDetails : "None"
 }
+
 
 const reducer = (state=initialData, action)=>{
     if(action.type==="PURCHASE") {
@@ -36,6 +41,12 @@ const reducer = (state=initialData, action)=>{
             ...state,
             cart:state.cart.filter((i,index)=> index !== action.payLoad.index),
             total:state.total - parseInt(action.payLoad.price)
+        }
+    }
+    if(action.type==="LOGIN") {
+        return{
+            ...state,
+            LoginDetails:action.payLoad
         }
     }
     return state

@@ -5,6 +5,7 @@ import "./style.css"
 function Cart() {
   const dispatch=useDispatch()
   const cart = useSelector((state)=>state.cart)
+  const login = useSelector((state)=>state.LoginDetails)
   const deleteHandler=(index,price)=>{
     dispatch({
       type:"DELETE",
@@ -13,7 +14,7 @@ function Cart() {
   }
   return (
     <div className='customDiv'>
-    <h3>Cart</h3>
+    <h3>Cart | {login}</h3>
     <hr></hr>
     <ul>
       {
