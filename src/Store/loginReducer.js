@@ -1,3 +1,5 @@
+import { LOGIN } from "./action/loginAction"
+
 const initialData={
     users : [
         "Admin","Manager","End-user"
@@ -6,7 +8,7 @@ const initialData={
 }
 
 const loginReducer=(state=initialData,action)=>{
-    if(action.type==="LOGIN") {
+    if(action.type===LOGIN) {
         return{
             ...state,
             LoginDetails:action.payLoad

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import "./style.css"
+import { DELETE } from '../../../Store/action/productAction'
 
 function Cart() {
   const dispatch=useDispatch()
@@ -8,7 +9,7 @@ function Cart() {
   const login = useSelector((state)=>state.login.LoginDetails)
   const deleteHandler=(index,price)=>{
     dispatch({
-      type:"DELETE",
+      type:DELETE,
       payLoad: {index,price}
     })
   }

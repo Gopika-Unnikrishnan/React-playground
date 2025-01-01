@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { LOGIN } from '../../../Store/action/loginAction'
 
 function Login() {
     const dispatch = useDispatch()
@@ -7,7 +8,7 @@ function Login() {
 
     const dispatchHandler=(e)=>{
         const login=e.target.value
-        dispatch({type:"LOGIN",payLoad:login})
+        dispatch({type:LOGIN,payLoad:login})
         console.log(login)
     }
 

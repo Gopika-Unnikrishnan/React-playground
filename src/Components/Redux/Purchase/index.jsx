@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import Login from '../Login/Login'
+import { PURCHASE } from '../../../Store/action/productAction'
 
 function Purchase() {
     const dispatch = useDispatch()
@@ -12,7 +12,7 @@ function Purchase() {
         const obj = {
             pName,price
         }
-        dispatch({type:"PURCHASE",payLoad:obj})
+        dispatch({type:PURCHASE,payLoad:obj})
     }
     return (
         <div className='customDiv'>
