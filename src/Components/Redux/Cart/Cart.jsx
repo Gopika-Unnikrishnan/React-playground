@@ -4,8 +4,8 @@ import "./style.css"
 
 function Cart() {
   const dispatch=useDispatch()
-  const cart = useSelector((state)=>state.cart)
-  const login = useSelector((state)=>state.LoginDetails)
+  const cart = useSelector((state)=>state.product.cart)
+  const login = useSelector((state)=>state.login.LoginDetails)
   const deleteHandler=(index,price)=>{
     dispatch({
       type:"DELETE",

@@ -4,8 +4,8 @@ import Login from '../Login/Login'
 
 function Purchase() {
     const dispatch = useDispatch()
-    const products = useSelector((state)=>state.products)
-    const login = useSelector((state)=>state.LoginDetails)
+    const products = useSelector((state)=>state.product.products)
+    const login = useSelector((state)=>state.login.LoginDetails)
     const dispatchHandler=(e)=>{
         const pName = e.target.options[e.target.selectedIndex].text.split('-')[0]
         const price = e.target.value

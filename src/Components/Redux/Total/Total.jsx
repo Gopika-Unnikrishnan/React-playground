@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 function Total() {
-    const total = useSelector((state)=>state.total)
+    const total = useSelector((state)=>state.product.total)
   return (
     <div className='customDiv'>
         <h3>Total</h3>
