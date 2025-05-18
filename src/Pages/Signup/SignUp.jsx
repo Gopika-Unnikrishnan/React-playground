@@ -2,9 +2,14 @@ import {useRef, useState } from "react"
 import { Card, Form, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/AuthContext"
 import { Link, useNavigate } from "react-router-dom"
+import axios from "axios"
+import { useDispatch } from "react-redux"
+import { SET_TOKEN } from "../../Store/action/userAction"
+import {jwtDecode} from 'jwt-decode';
 
 
 const SignUp = () => {
+    const dispatch=useDispatch();
 const emailRef=useRef()
 const passwordRef=useRef()
 const confirmPasswordRef=useRef()
@@ -22,7 +27,23 @@ const [loading,setLoading] = useState(false)
         try {
         setError("")
         setLoading(true)
-        await signup(emailRef.current.value,passwordRef.current.value)
+        
+        const registerPayLoad = {
+            username:emailRef.current.value,
+            email:emailRef.current.value,
+            password:passwordRef.current.value
+        }
+
+        const response = await axios.post("https://node-express-jwt-tds0.onrender.com/api/register",registerPayLoad);
+        const decoded = jwtDecode(response.data.token);
+        const reduxData = {
+            token: response.data.token,
+            decoded: decoded
+        }
+
+        dispatch({type:SET_TOKEN,payload:reduxData});
+        localStorage.setItem('token', response.data.token);
+
         navigate("/")
         }
         catch(e){

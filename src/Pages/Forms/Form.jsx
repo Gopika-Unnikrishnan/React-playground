@@ -4,65 +4,112 @@ import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert';
 
 const FormInput = () => {
-    const [name, setName] = useState("");
-    const [age, setAge] = useState(0);
-    const [sex, setSex] = useState("");
-    const [showWarning, setShowWarning] = useState(false)
+    const [formData,setFormData] = useState({
+        name : "",
+        email : "",
+        gender : "",
+        agreement : "",
+        selectedOption : ""
+    });
 
-
-
-    useEffect(() => {
-        if (age == 0) {
-            setShowWarning(false) // this is wrong logic
-        } else if(age <=18){
-            setShowWarning(true)
-        } else {
-            setShowWarning(false)
-        }
-    }, [age])
-
-    const handleSubmitForms = (event) => {
-        event.preventDefault();
-       const data= {name, age, sex}
-       fetch("http://localhost:5000", { 
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(data)
-       })
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        return (
+            console.log(formData)
+        )
     }
 
-    return (
+    const handleChange = (e) => {
+        const {name,value,type,checked} = e.target;
+        setFormData({...formData,[name]: type === "checkbox" ? checked : value});
+    };
+
+    return(
+        <form onSubmit={handleSubmit} className="custom-form">
         <div>
-            <h3> plese fill this form</h3>
-            <h6> this form isonly for people above 18</h6>
-            <Form onSubmit={handleSubmitForms}>
-                <Form.Group>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter your name" onChange={(e) => setName(e.target.value)} />
-                </Form.Group>
+        <label>Name</label>
+        <input
+        required
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+      </div>
 
-                <Form.Group>
-                    <Form.Label>Age</Form.Label>
-                    <Form.Control type="number" placeholder="Enter your age" onChange={(event) => setAge(event.target.value)} />
-                </Form.Group>
+      <div>
+        <label>Email</label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
 
-                <Form.Group>
-                    <Form.Label>Sex</Form.Label>
-                    <Form.Select onChange={(event) => setSex(event.target.value)}>
-                        <option disabled>Select</option>
-                        <option>male</option>
-                        <option>female</option>
-                        <option>transgender</option>
-                    </Form.Select>
-                </Form.Group>
-                {showWarning ? <Alert variant='danger'> you should be over 18</Alert> : ""}
-                <Button variant='success' type="submit" disabled={showWarning}>
-                    submit
-                </Button>
-            </Form>
-           
+      <div>
+        <label>Gender</label>
+        <div>
+          <input
+            type="radio"
+            id="male"
+            name="gender"
+            value="male"
+            checked={formData.gender === 'male'}
+            onChange={handleChange}
+          />
+          <label>Male</label>
         </div>
-    );
+        <div>
+          <input
+            type="radio"
+            id="female"
+            name="gender"
+            value="female"
+            checked={formData.gender === 'female'}
+            onChange={handleChange}
+          />
+          <label>Female</label>
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="agreement">
+          <input
+            type="checkbox"
+            id="agreement"
+            name="agreement"
+            checked={formData.agreement}
+            onChange={handleChange}
+          />
+          I agree to the terms and conditions
+        </label>
+      </div>
+
+      <div>
+        <label>Choose an option</label>
+        <select
+          id="selectedOption"
+          name="selectedOption"
+          value={formData.selectedOption}
+          onChange={handleChange}
+        >
+          <option value="">Select...</option>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </select>
+      </div>
+      <button type="submit">
+        Submit
+      </button>
+
+     </form>
+    )
 };
 
 export default FormInput;

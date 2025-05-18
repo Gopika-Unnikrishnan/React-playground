@@ -13,6 +13,7 @@ import {AuthProvider} from "./contexts/AuthContext"
 import Grid from './Pages/Grid/Grid';
 import FormInput from './Pages/Forms/Form';
 import Redux from './Pages/Redux/Redux';
+import ProductList from './Pages/productList/productlist';
 
 const App=()=> {
   return (
@@ -29,6 +30,7 @@ const App=()=> {
         <Route path="/sign-up" element={<SignUp/>}/>
         <Route path="/grid" element={<Grid/>}/>
         <Route path="/redux" element={<Redux/>}/>
+        <Route path="/productlist" element={<ProductList/>}/>
         </Routes>
         </Container>
         </AuthProvider>

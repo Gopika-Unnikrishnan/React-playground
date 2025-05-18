@@ -34,6 +34,13 @@
             "link":"/redux",
             "buttonText":"Go to Redux",
             "imageSrc":"/images/card-1.jfif"
+        },
+        {
+            "title":"ProductList",
+            "text":"List of the Products",
+            "link":"/productlist",
+            "buttonText":"Go to ProductList",
+            "imageSrc":"/images/card-1.jfif"
         }
     ]
 }
