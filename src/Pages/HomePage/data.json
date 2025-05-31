@@ -36,9 +36,16 @@
             "imageSrc":"/images/card-1.jfif"
         },
         {
-            "title":"ProductList",
+            "title":"Product Search",
+            "text":"Search the Products",
+            "link":"/productsearch",
+            "buttonText":"Go to ProductSearch",
+            "imageSrc":"/images/card-1.jfif"
+        },
+        {
+            "title":"Product List",
             "text":"List of the Products",
-            "link":"/productlist",
+            "link":"/product-list",
             "buttonText":"Go to ProductList",
             "imageSrc":"/images/card-1.jfif"
         }

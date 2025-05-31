@@ -40,7 +40,7 @@ const [loading,setLoading] = useState(false)
         }
         catch(e){
             console.log("error",e)
-            setError("Failed to create an account")
+            setError("Failed to Sigin")
         }
         setLoading(false)
     }

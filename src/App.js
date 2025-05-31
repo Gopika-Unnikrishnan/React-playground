@@ -13,11 +13,13 @@ import {AuthProvider} from "./contexts/AuthContext"
 import Grid from './Pages/Grid/Grid';
 import FormInput from './Pages/Forms/Form';
 import Redux from './Pages/Redux/Redux';
-import ProductList from './Pages/productList/productlist';
 import SignIn from './Pages/Signin/Signin';
 import Logout from './Pages/Logout/Logout';
 import UserDashboard from './Pages/Dashboard/UserDashboard';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
+import ProductSearch from './Pages/ProductSearch/ProductSearch';
+import ProductList from './Pages/ProductList/ProductList';
+import AddProduct from './Pages/AddProduct/AddProduct';
 
 
 const App=()=> {
@@ -37,8 +39,10 @@ const App=()=> {
         <Route path="/logout" element={<Logout/>}/>
         <Route path="/grid" element={<Grid/>}/>
         <Route path="/redux" element={<Redux/>}/>
-        <Route path="/productlist" element={<ProductList/>}/>
+        <Route path="/productsearch" element={<ProductSearch/>}/>
         <Route path="/user-dashboard" element={<ProtectedRoute><UserDashboard/></ProtectedRoute>}/>
+        <Route path="/product-list" element={<ProtectedRoute><ProductList/></ProtectedRoute>}/>
+        <Route path="/add-product" element={<ProtectedRoute><AddProduct/></ProtectedRoute>}/>
         </Routes>
         </Container>
         </AuthProvider>
